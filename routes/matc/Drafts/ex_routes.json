@@ -1,0 +1,79 @@
+
+{
+    "waypoints": [
+      {
+        "name": "JFK-Heliport",
+        "latitude": 40.64962862779017,
+        "longitude": -73.81051461250043
+      },
+      {
+        "name": "CrossBay-Conduit",
+        "latitude": 40.66863142022567,
+        "longitude": -73.84228907151024
+      },
+      {
+        "name": "Conduit-Liberty",
+        "latitude": 40.678287842204014, 
+        "longitude": -73.87313488044164
+      },
+      {
+        "name": "Ridgewood-Resevoir",
+        "latitude": 40.68910896266746,
+        "longitude":  -73.88645936903963
+      },
+      {
+        "name": "Laguardia",
+        "latitude": 40.776012944031976,
+        "longitude": -73.8809832855975
+      }
+    ],
+    "routes": [
+      {
+        "flight_prefix": ["AA", "AB", "AC", "AD"],
+        "aircraft": ["EC35"],
+        "distribution": [
+          {
+            "name": "Monday",
+            "spawn": {"type": "poisson", "parameters": {"mu": 5}},
+            "spacing": {"type": "weibull_min", "parameters": {"c": 1}, "minimum": 120, "scale": 120},
+            "direction_forward_probability": 0.5,
+            "flight_prefix_probabilities": [0.1, 0.2, 0.3, 0.4],
+            "aircraft_probabilities": [1] 
+          }
+        ],
+        "end_waypoint_1": {
+          "name":"JFK-Heliport",
+          "speed": 50,
+          "end": true
+        },
+        "end_waypoint_2": {
+          "name":"Laguardia",
+          "speed": 50,
+          "end": true
+        },
+        "possible_intermediary_waypoints": [
+          [{
+            "name": "CrossBay-Conduit",
+            "speed": 110,
+            "altitude": 1500
+          },
+          {
+            "name": "CrossBay-Conduit",
+            "speed": 110,
+            "altitude": 1500
+          },
+          {
+            "name": "Conduit-Liberty",
+            "speed": 110,
+            "altitude": 1500
+          },
+          {
+            "name": "Ridgewood-Resevoir",
+            "speed": 110,
+            "altitude": 1500
+          }
+        ] 
+        ]
+      }
+    ]
+  }
